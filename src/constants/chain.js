@@ -1,7 +1,7 @@
 import { defineChain } from "thirdweb";
 
 
-const myChain = defineChain({
+export const myChain = defineChain({
     id: 93384,
     rpc: "https://assam-rpc.tea.xyz",
     nativeCurrency: {
