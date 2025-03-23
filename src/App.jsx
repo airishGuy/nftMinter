@@ -4,12 +4,12 @@ import Header from './components/Header'
 import NFTSection from './components/NFTSection'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [myNftStatus, setMyNftStatus] = useState(false)
 
   return (
     <div className='text-black'>
-    <Header />
-    <NFTSection />
+    <Header setMyNftStatus={setMyNftStatus}/>
+    <NFTSection myNftStatus={myNftStatus} setMyNftStatus={setMyNftStatus} />
     </div>
   )
 }
