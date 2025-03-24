@@ -1,4 +1,7 @@
 import React from 'react'
+import { ConnectButton } from 'thirdweb/react';
+import { client } from '../constants/client';
+import { myChain } from '../constants/chain';
 
 const Header = ({setMyNftStatus}) => {
   return (
@@ -8,12 +11,16 @@ const Header = ({setMyNftStatus}) => {
 
       {/* Connect Wallet Button */}
 
-      <div>
+      <div className='flex'>
             <button className='text-white' onClick={() => setMyNftStatus(false)}>Mint NFT</button>
-            <button className='ml-4 text-white' onClick={() => setMyNftStatus(true)}>My NFTs</button>
-            <button className="ml-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition">
+            <button className='mx-4 text-white' onClick={() => setMyNftStatus(true)}>My NFTs</button>
+            {/* <button className="ml-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition">
               Connect Wallet
-            </button>
+            </button> */}
+
+            <ConnectButton
+            client={client}
+            chain={myChain} />
       </div>
 
     </header>

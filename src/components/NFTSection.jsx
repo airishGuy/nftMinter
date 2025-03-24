@@ -1,9 +1,38 @@
 
 import { useState } from "react";
+import { getContract } from "thirdweb";
+import { client } from "../constants/client";
+import { myChain } from "../constants/chain";
+import { CA } from "../constants/helper";
 
-export default function NFTSection({myNftStatus, setMyNftStatus}) {
+export default function NFTSection({myNftStatus}) {
   const totalSupply = 5000;
   const [minted, setMinted] = useState(0);
+
+
+  // get a contract
+const contract = getContract({
+  client,
+  chain: myChain,
+  address: CA,
+  abi: [
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_tokenURI",
+          "type": "string"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+});
+
+
 
   const mintNFT = () => {
     if (minted < totalSupply) {
@@ -11,10 +40,13 @@ export default function NFTSection({myNftStatus, setMyNftStatus}) {
     }
   };
 
+
+
   return (
     <div>
         {
-            !myNftStatus ? (    <section className="mt-8 flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md max-w-md mx-auto">
+            !myNftStatus 
+            ? (    <section className="mt-8 flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md max-w-md mx-auto">
                 {/* NFT Image */}
                 <img
                   src="https://via.placeholder.com/300" // Replace with actual NFT image
@@ -35,7 +67,12 @@ export default function NFTSection({myNftStatus, setMyNftStatus}) {
                 >
                   {minted >= totalSupply ? "Sold Out" : "Mint NFT"}
                 </button>
-              </section>) : ""
+              </section>) 
+            : (<div>
+              {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex earum cupiditate inventore. 
+              Distinctio velit dolores delectus ullam eligendi quo, quis possimus id esse, sequi voluptates 
+              corporis consequuntur ipsum provident veniam. */}
+            </div>)
         }
     
 
