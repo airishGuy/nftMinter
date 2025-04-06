@@ -1,9 +1,8 @@
 import { defineChain } from "thirdweb";
 
-
 export const myChain = defineChain({
-    id: 93384,
-    rpc: "https://assam-rpc.tea.xyz",
+    id: 10218,
+    rpc: "https://tea-sepolia.g.alchemy.com/public",
     nativeCurrency: {
         name: "TEA",
         symbol: "TEA",

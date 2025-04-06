@@ -46,8 +46,11 @@ const tokensOfOwnerArray = (tokensOfOwner ?? []).map(Number);
 
 
   const mintNFT = async() => {
-    console.log("minting pop")
+    console.log("minting pop");
+    console.log(contract);
     setBgc("bg-red-500")
+    console.log(totalMinted);  
+    //////
     if (Number(totalMinted) < totalSupply) {
 
     console.log({minted: Number(totalMinted)});
@@ -75,6 +78,7 @@ const tokensOfOwnerArray = (tokensOfOwner ?? []).map(Number);
     
     setMinted(Number(totalMinted));
     }
+    /////
   };
 
   useEffect(() => {
